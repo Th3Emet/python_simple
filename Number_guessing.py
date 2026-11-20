@@ -1,7 +1,7 @@
 import random
 
-// This is a simple number guessing game where the player has to guess a randomly generated number between 1 and 100. 
-// The player has seven attempts to guess the correct number. After each guess, the program will provide feedback on whether the guess is too high, too low, or correct.
+# This is a simple number guessing game where the player has to guess a randomly generated number between 1 and 100.
+# The player has seven attempts to guess the correct number. After each guess, the program will provide feedback on whether the guess is too high, too low, or correct.
 
 def display_rules():
         print("Welcome to the Number Guessing Game! \n")
@@ -13,10 +13,11 @@ def play_game(number, attempts = 1):
         print("Sorry, you've used all your attempts. The correct number was:", number)
         return
 
-    guess = int(input(f"Attempt {attempts}: Please enter your guess (1-100): "))
+    try:
+        guess = int(input(f"Attempt {attempts}: Please enter your guess (1-100): "))
     except ValueError:
         print("Invalid input. Please enter a number between 1 and 100.")
-        return play_game(number, attempt)
+        return play_game(number, attempts)
 
     if guess < 1 or guess > 100:
         print("Please enter a number between 1 and 100.\n")
@@ -37,9 +38,9 @@ def play_game(number, attempts = 1):
 
     play_game(number, attempts + 1)
 
-// start the game
-    start_game = input("Do you want to play the Number Guessing Game? (yes/no): ").strip().lower()
-    if start_game == "yes":
-        display_rules()
-        number = random.randint(1, 100)
-        play_game(number)
+# start the game
+start_game = input("Do you want to play the Number Guessing Game? (yes/no): ").strip().lower()
+if start_game == "yes":
+   display_rules()
+   number = random.randint(1, 100)
+   play_game(number)
